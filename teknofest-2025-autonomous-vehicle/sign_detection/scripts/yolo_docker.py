@@ -21,7 +21,7 @@ class TrafficSignDetector3D:
         rospy.init_node('yolo_3d_sign_detector', anonymous=True)
 
         # Parametreler (Hardcoded)
-        self.model_path = 'detecrion_model.pt'
+        self.model_path = 'models/detecrion_model.pt'
         self.target_width = 720
         self.target_height = 480
         self.default_distance_threshold = 10.0
