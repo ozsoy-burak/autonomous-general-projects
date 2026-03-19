@@ -1,0 +1,31 @@
+<launch>
+
+   <master auto="start"/>
+
+
+
+   <!-- Run the map server --> 
+   <node name="load_map_to_amcl" pkg="map_server" type="map_server" args="$(find mini_navigation)/maps/map_sigun_v4.yaml"/>
+   
+   <!--- Run AMCL --> 
+
+   <!-- Run move_base node -->
+   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+      
+      <!-- Register teb local planner into navigation -->
+      <param name="base_local_planner" value="teb_local_planner/TebLocalPlannerROS" />
+      <param name="controller_frequency" value="10.0" />    <!-- define the output cmd_vel publish rate -->
+    
+
+      <rosparam file="$(find mini_navigation)/config/costmap_common_params.yaml" command="load" ns="global_costmap" /> 
+      <rosparam file="$(find mini_navigation)/config/costmap_common_params.yaml" command="load" ns="local_costmap" />
+      <rosparam file="$(find mini_navigation)/config/local_costmap_params.yaml" command="load" />
+      <rosparam file="$(find mini_navigation)/config/move_base_params.yaml" command="load" />
+      <rosparam file="$(find mini_navigation)/config/global_costmap_params.yaml" command="load" /> 
+      <rosparam file="$(find mini_navigation)/config/teb_local_planner_params.yaml" command="load" />
+      <rosparam file="$(find mini_navigation)/config/global_planner_params.yaml" command="load"/>
+   </node>
+
+</launch> 
+
+

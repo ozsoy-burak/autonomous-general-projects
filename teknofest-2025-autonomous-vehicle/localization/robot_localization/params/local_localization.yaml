@@ -1,0 +1,129 @@
+#Configuation for robot odometry EKF
+frequency: 50
+sensor_timeout: 0.1
+two_d_mode: true
+transform_time_offset: 0.0
+transform_timeout: 0.0
+print_diagnostics: true
+debug: false
+
+map_frame: map
+odom_frame: odom
+base_link_frame: base_link
+world_frame: odom
+publish_tf: true
+
+
+odom0: /wheel_odometry  #Tekerleklerden alınan ölçümlerden elde edilen odometri verisi
+odom0_config: [false,   # pose.x
+               false,   # pose.y
+               false,  # pose.z
+               false,  # orientation.x
+               false,  # orientation.y
+               false,  # orientation.z
+               true,   # twist.linear.x
+               false,  # twist.linear.y
+               false,  # twist.linear.z
+               false,  # twist.angular.x
+               false,  # twist.angular.y
+               false,   # twist.angular.z
+               false,  # ax (acceleration x)
+               false,  # ay (acceleration y)
+               false]  # az (acceleration z)
+               
+odom0_queue_size: 10
+odom0_nodelay: false
+odom0_differential: false
+odom0_relative: false
+
+odom1: /odom_rf2o  #Scan taramasından elde edilen 10hz'lik odometri verisi
+odom1_config: [false,   # pose.x
+               false,   # pose.y
+               false,  # pose.z
+               false,  # orientation.x
+               false,  # orientation.y
+               false,  # orientation.z
+               true,   # twist.linear.x
+               false,  # twist.linear.y
+               false,  # twist.linear.z
+               false,  # twist.angular.x
+               false,  # twist.angular.y
+               true,   # twist.angular.z
+               false,  # ax (acceleration x)
+               false,  # ay (acceleration y)
+               false]  # az (acceleration z)
+odom1_queue_size: 10
+odom1_nodelay: false
+odom1_differential: false
+odom1_relative: false
+
+odom2: /rtabmap/odom_rtab  #Stereo kamera kullanılarak elde edilen Görsel Odometri
+odom2_config: [false,   # pose.x
+               false,   # pose.y
+               false,  # pose.z
+               false,  # orientation.x
+               false,  # orientation.y
+               false,  # orientation.z
+               true,   # twist.linear.x
+               false,  # twist.linear.y
+               false,  # twist.linear.z
+               false,  # twist.angular.x
+               false,  # twist.angular.y
+               true,   # twist.angular.z
+               false,  # ax (acceleration x)
+               false,  # ay (acceleration y)
+               false]  # az (acceleration z)
+               
+odom2_queue_size: 10
+odom2_nodelay: false
+odom2_differential: false
+odom2_relative: false
+
+
+imu0: /imu/data
+imu0_config: [false, false, false,
+              false,  false,  true,
+              false, false, false,
+              false,  false,  true,
+              false,  false,  false]
+              
+imu0_nodelay: false
+imu0_differential: false
+imu0_relative: true
+imu0_queue_size: 10
+imu0_remove_gravitational_acceleration: true
+
+use_control: false
+
+process_noise_covariance: [0.05, 0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+                                              0,    0.05, 0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+                                              0,    0,    0.06, 0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+                                              0,    0,    0,    0.03, 0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+                                              0,    0,    0,    0,    0.03, 0,    0,     0,     0,    0,    0,    0,    0,    0,    0,
+                                              0,    0,    0,    0,    0,    0.06, 0,     0,     0,    0,    0,    0,    0,    0,    0,
+                                              0,    0,    0,    0,    0,    0,    0.025, 0,     0,    0,    0,    0,    0,    0,    0,
+                                              0,    0,    0,    0,    0,    0,    0,     0.025, 0,    0,    0,    0,    0,    0,    0,
+                                              0,    0,    0,    0,    0,    0,    0,     0,     0.04, 0,    0,    0,    0,    0,    0,
+                                              0,    0,    0,    0,    0,    0,    0,     0,     0,    0.01, 0,    0,    0,    0,    0,
+                                              0,    0,    0,    0,    0,    0,    0,     0,     0,    0,    0.01, 0,    0,    0,    0,
+                                              0,    0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0.02, 0,    0,    0,
+                                              0,    0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0.01, 0,    0,
+                                              0,    0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0.01, 0,
+                                              0,    0,    0,    0,    0,    0,    0,     0,     0,    0,    0,    0,    0,    0,    0.015]
+
+
+initial_estimate_covariance: [1e-9, 0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
+                                                      0,    1e-9, 0,    0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
+                                                      0,    0,    1e-9, 0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
+                                                      0,    0,    0,    1e-9, 0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
+                                                      0,    0,    0,    0,    1e-9, 0,    0,    0,    0,    0,     0,     0,     0,    0,    0,
+                                                      0,    0,    0,    0,    0,    1e-9, 0,    0,    0,    0,     0,     0,     0,    0,    0,
+                                                      0,    0,    0,    0,    0,    0,    1e-9, 0,    0,    0,     0,     0,     0,    0,    0,
+                                                      0,    0,    0,    0,    0,    0,    0,    1e-9, 0,    0,     0,     0,     0,    0,    0,
+                                                      0,    0,    0,    0,    0,    0,    0,    0,    1e-9, 0,     0,     0,     0,    0,    0,
+                                                      0,    0,    0,    0,    0,    0,    0,    0,    0,    1e-9,  0,     0,     0,    0,    0,
+                                                      0,    0,    0,    0,    0,    0,    0,    0,    0,    0,     1e-9,  0,     0,    0,    0,
+                                                      0,    0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     1e-9,  0,    0,    0,
+                                                      0,    0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     0,     1e-9, 0,    0,
+                                                      0,    0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    1e-9, 0,
+                                                      0,    0,    0,    0,    0,    0,    0,    0,    0,    0,     0,     0,     0,    0,    1e-9]

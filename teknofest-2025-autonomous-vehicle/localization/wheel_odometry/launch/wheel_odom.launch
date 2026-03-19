@@ -1,0 +1,4 @@
+<launch>
+    <node pkg="wheel_odom" type="ackermann_rpm_odometry" name="ackermann_rpm_odometry" output="screen" clear_params="true">
+    </node>
+</launch>
