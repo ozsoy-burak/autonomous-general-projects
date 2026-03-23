@@ -60,6 +60,7 @@ The environment map is built using HDL Graph SLAM on VLP-16 point cloud data. Th
 The ROS Navigation Stack is used for global and local path planning. The **TEB (Timed Elastic Band)** local planner is configured for the vehicle's Ackermann kinematics, enabling smooth and kinematically feasible trajectory execution in dynamic environments. Several optimizations were applied to the costmap and planner parameters for reliable urban-course navigation.
 
 <img width="623" height="784" alt="Screenshot from 2026-03-23 14-41-02" src="https://github.com/user-attachments/assets/f86b96af-4d7c-48ae-a68e-60ae476a0057" />
+
 **Figure**: Local and Global Planner
 
 ### Parking
@@ -68,6 +69,7 @@ The parking module operates as a two-stage pipeline:
 1. **3D localization of the parking sign** — When the parking sign is detected by YOLOv11m, its 2D bounding box is back-projected into 3D space using ZED2 depth data. The resulting 3D pose is anchored to the map frame via a TF transform, giving the sign a fixed coordinate in the map.
 
 <img width="1749" height="749" alt="image" src="https://github.com/user-attachments/assets/942ae20c-e597-468c-a236-46c63b0f3215" />
+
 **Figure**: Detection Parking Area and Localization On Map
 
 3. **Zone matching and path planning** — A second node reads the sign's map coordinate and matches it against a set of predefined candidate parking zones. The best matching zone is selected, and the navigation stack plans and executes a path to that zone, completing the autonomous parking maneuver.
