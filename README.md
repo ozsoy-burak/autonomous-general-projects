@@ -67,7 +67,10 @@ The parking module operates as a two-stage pipeline:
 
 1. **3D localization of the parking sign** — When the parking sign is detected by YOLOv11m, its 2D bounding box is back-projected into 3D space using ZED2 depth data. The resulting 3D pose is anchored to the map frame via a TF transform, giving the sign a fixed coordinate in the map.
 
-2. **Zone matching and path planning** — A second node reads the sign's map coordinate and matches it against a set of predefined candidate parking zones. The best matching zone is selected, and the navigation stack plans and executes a path to that zone, completing the autonomous parking maneuver.
+<img width="1749" height="749" alt="image" src="https://github.com/user-attachments/assets/942ae20c-e597-468c-a236-46c63b0f3215" />
+**Figure**: Detection Parking Area and Localization On Map
+
+3. **Zone matching and path planning** — A second node reads the sign's map coordinate and matches it against a set of predefined candidate parking zones. The best matching zone is selected, and the navigation stack plans and executes a path to that zone, completing the autonomous parking maneuver.
 
   <img width="1920" height="1080" alt="Sistem Mimarisi" src="https://github.com/user-attachments/assets/edb2553e-a1f5-41cd-8433-c8c134ff966c" />
 **Figure**: Gazebo Simulation World
