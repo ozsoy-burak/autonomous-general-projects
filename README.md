@@ -69,7 +69,13 @@ The parking module operates as a two-stage pipeline:
 
 2. **Zone matching and path planning** — A second node reads the sign's map coordinate and matches it against a set of predefined candidate parking zones. The best matching zone is selected, and the navigation stack plans and executes a path to that zone, completing the autonomous parking maneuver.
 
----
+  <img width="1920" height="1080" alt="Sistem Mimarisi" src="https://github.com/user-attachments/assets/edb2553e-a1f5-41cd-8433-c8c134ff966c" />
+**Figure**: Gazebo Simulation World
+
+<img width="812" height="596" alt="Screenshot from 2026-03-23 14-47-37" src="https://github.com/user-attachments/assets/92cbf0c0-fc01-4875-9faa-f0417be33816" />
+**Figure**: Competition Area (On Google Earth)
+
+
 
 ## Key Technologies
 
@@ -84,7 +90,4 @@ The parking module operates as a two-stage pipeline:
 | Depth & visual odom | ZED2 + RTAB-Map |
 | Language | C++, Python |
 
-
-  <img width="1920" height="1080" alt="Sistem Mimarisi" src="https://github.com/user-attachments/assets/edb2553e-a1f5-41cd-8433-c8c134ff966c" />
-**Figure**: Gazebo Simulation World
 
