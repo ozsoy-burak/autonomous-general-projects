@@ -22,6 +22,8 @@ A dedicated lane detection module processes ZED2 camera frames to identify lane 
 ### Traffic Light & Sign Detection
 A YOLOv11m model, custom-trained on a Teknofest-specific dataset, handles detection of traffic lights and road signs in real time. Detected classes are published as ROS topics and consumed by the decision-making layer to trigger appropriate vehicle behaviors (stop, new path planning etc.).
 
+![20250805_095602_165783](https://github.com/user-attachments/assets/5b12781f-96cf-4c63-98fd-c667c767a78d)
+
 ### Sensor Fusion & Localization
 Localization is achieved in two stages:
 
