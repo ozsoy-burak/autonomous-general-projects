@@ -80,9 +80,7 @@ The parking module operates as a two-stage pipeline:
 | Depth & visual odom | ZED2 + RTAB-Map |
 | Language | C++, Python |
 
-<p align="center">
+
   <img width="1920" height="1080" alt="Sistem Mimarisi" src="https://github.com/user-attachments/assets/edb2553e-a1f5-41cd-8433-c8c134ff966c" />
-  <br>
-  <em>Şekil: Simülasyon Ortamı Tasarımı</em>
-</p>
+Şekil: Simülasyon
 
